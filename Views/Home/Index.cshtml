@@ -2,4 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-<img class="cooper-main" src="~/images/CooperMain.png" asp-append-version="true">
+<picture>
+    <source media="(min-width: 1200px)" srcset="~/images/CooperMain.png">
+    <source media="(min-width: 768px)" srcset="~/images/CooperMain_Tablet.png">
+    <img class="cooper-main" src="~/images/CooperMain_Mobile.png" alt="IfItDoesntMatchAnyMedia">
+</picture>
