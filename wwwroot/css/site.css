@@ -1,6 +1,15 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/********************** 
+Nav Bar 
+**********************/
+.navbar-custom {
+  margin-bottom: 0px !important;
+  border-bottom: 0px !important;
+  background-color: #2b364d;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -22,6 +31,17 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+
+/********************** 
+Home Page 
+**********************/
+.cooper-main {
+  height: auto;
+  width: 100%;
+  padding: 1px;
+  border:1px solid #021a40;
 }
 
 /* Sticky footer styles
