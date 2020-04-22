@@ -44,6 +44,19 @@ Home Page
   border:1px solid #021a40;
 }
 
+.home-page-container {
+  margin-top: 10px;
+}
+
+.Photo1 {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  border: 5px solid green;
+  /* padding: 50px;
+  margin: 20px; */
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
