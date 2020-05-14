@@ -55,18 +55,16 @@ Home Page
   margin-top: 10px;
 }
 
+.ImageContainer{
+  padding: 0px 0px;
+}
+
 .DailyTailsImage,
 .ZooImage,
 .KeepersImage {
   width: 100%;
-  height: 300px;
-  border: 5px solid green;
-}
-
-@media screen and ( min-width: 1200px ) {
-  .DailyTailsImage {
-    height: 450px;
-  }
+  border-radius: 5%;
+  border: solid 1px #888888;
 }
 
 /* Sticky footer styles
