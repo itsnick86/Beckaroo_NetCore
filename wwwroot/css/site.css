@@ -1,6 +1,22 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/********************** 
+Global
+**********************/
+.row {
+  margin: 5px 0px !important;
+}
+
+/********************** 
+Nav Bar 
+**********************/
+.navbar-custom {
+  margin-bottom: 0px !important;
+  border-bottom: 0px !important;
+  background-color: #2b364d;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -22,6 +38,33 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+
+/********************** 
+Home Page 
+**********************/
+.cooper-main {
+  height: auto;
+  width: 100%;
+  padding: 1px;
+  border:1px solid #021a40;
+}
+
+.home-page-container {
+  margin-top: 10px;
+}
+
+.ImageContainer{
+  padding: 0px 0px;
+}
+
+.DailyTailsImage,
+.ZooImage,
+.KeepersImage {
+  width: 100%;
+  border-radius: 5%;
+  border: solid 1px #888888;
 }
 
 /* Sticky footer styles
