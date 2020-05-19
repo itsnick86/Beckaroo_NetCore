@@ -8,6 +8,12 @@ Global
   margin: 5px 0px !important;
 }
 
+.StandardImage {
+  width: 100%;
+  border-radius: 2.5%;
+  border: solid 1px #888888;
+}
+
 /********************** 
 Nav Bar 
 **********************/
@@ -56,16 +62,16 @@ Home Page
 }
 
 .ImageContainer{
-  padding: 0px 0px;
+  padding: 0px 0px 10px;
 }
 
-.DailyTailsImage,
-.ZooImage,
-.KeepersImage {
-  width: 100%;
-  border-radius: 5%;
-  border: solid 1px #888888;
+/********************** 
+Keepers
+**********************/
+.KeeperRow {
+  padding: 10px 0px;
 }
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
