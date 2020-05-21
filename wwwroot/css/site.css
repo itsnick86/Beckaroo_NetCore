@@ -66,6 +66,14 @@ Home Page
 }
 
 /********************** 
+The Zoo
+**********************/
+.AnimalName {
+  text-align: center;
+  padding: 5px 0px 10px;
+}
+
+/********************** 
 Keepers
 **********************/
 .KeeperRow {
