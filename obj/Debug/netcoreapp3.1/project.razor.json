@@ -20531,6 +20531,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/AdminPanel.cshtml",
+      "TargetPath": "Views\\Admin\\AdminPanel.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -20548,6 +20553,11 @@
     {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
