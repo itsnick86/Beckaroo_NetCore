@@ -20551,6 +20551,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/DailyTails/Blog.cshtml",
       "TargetPath": "Views\\DailyTails\\Blog.cshtml",
       "FileKind": "mvc"
