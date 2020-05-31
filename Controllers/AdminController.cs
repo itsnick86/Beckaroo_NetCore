@@ -23,9 +23,9 @@ namespace Beckaroo_NetCore.Controllers
             return View();
         }
 
-        public IActionResult BlogGet()
+        public IActionResult AdminPanel()
         {
-            return View("Blog");
+            return View("AdminPanel");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
