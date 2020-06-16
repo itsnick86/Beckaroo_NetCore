@@ -93,6 +93,14 @@ Keepers
   padding: 10px 0px;
 }
 
+/********************** 
+Admin Panel
+**********************/
+.createButton {
+  margin-bottom: 15px;
+  float: right;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
