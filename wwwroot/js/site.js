@@ -4,7 +4,12 @@
 // Write your JavaScript code.
 
 $(document).ready(function(){
-    $(".AnimalPictureModal").click(function(){
-      $("#exampleModal").modal();
-    });
+  $(".AnimalPictureModal").click(function(){
+    $("#exampleModal").modal();
   });
+});
+
+$('input[name="contentTable"]').bind('change',function(){
+  $('#blogTable').toggle(($(this).val() == 'blog') ? true : false);
+  $('#animalTable').toggle(($(this).val() == 'animal') ? true : false);
+});

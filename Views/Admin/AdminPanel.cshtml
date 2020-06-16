@@ -1,54 +1,101 @@
 @{
     ViewData["Title"] = "Admin Panel";
 }
-
-
  
 <div class="container BodyContainer text-center">
-<table class="table">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Title</th>
-            <th scope="col">Published</th>
-            <th scope="col"></th> 
-            <th scope="col"></th> 
-        </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>1</td>
-        <td>What it's like having 7 dogs</td>
-        <td>04-05-2020</td>
-        <td>
-          <button class="btn btn-primary" type="submit">Edit</button>
-        </td>
-        <td>
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Hiccup at my food again</td>
-        <td>04-12-2020</td>
-        <td>
-          <button class="btn btn-primary" type="submit">Edit</button>
-        </td>
-        <td>
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>My soul mate...no I'm not talking about my Husband</td>
-        <td>04-19-2020</td>
-        <td>
-          <button class="btn btn-primary" type="submit">Edit</button>
-        </td>
-        <td>
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </td>
-    </tr>
-</tbody>
-</table>
+  <div class="btn-group btn-group-toggle pb-3" data-toggle="buttons">
+      <label class="btn btn-info active">
+        <input type="radio" name="contentTable" value="blog"> Posts
+      </label>
+      <label class="btn btn-info">
+        <input type="radio" name="contentTable" value="animal"> Animals
+      </label>
+  </div>
+
+  <div id="blogTable">
+    <button type="button" class="btn btn-success createButton" asp-action="BlogForm">New Post</button>
+    <table class="table">
+      <thead class="thead-light">
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Published</th>
+              <th scope="col"></th> 
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1</td>
+              <td>What it's like having 7 dogs</td>
+              <td>04-05-2020</td>
+              <td>
+                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>Hiccup at my food again</td>
+              <td>04-12-2020</td>
+              <td>
+                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>My soul mate...no I'm not talking about my Husband</td>
+              <td>04-19-2020</td>
+              <td>
+                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="animalTable" style="display:none">
+    <button type="button" class="btn btn-success createButton" asp-action="AnimalForm">New Animal</button>
+    <table class="table">
+      <thead class="thead-light">
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Animal</th>
+              <th scope="col">Description</th>
+              <th scope="col"></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1</td>
+              <td>Rufus</td>
+              <td>The super rare Lound</td>
+              <td>
+                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>Cooper</td>
+              <td>A human in the body of a dog</td>
+              <td>
+                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>Hopper</td>
+              <td>A tiny bobcat that loves trash</td>
+              <td>
+                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+

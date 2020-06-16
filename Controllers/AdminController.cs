@@ -28,6 +28,16 @@ namespace Beckaroo_NetCore.Controllers
             return View("AdminPanel");
         }
 
+        public IActionResult BlogForm()
+        {
+            return View("BlogForm");
+        }
+
+        public IActionResult AnimalForm()
+        {
+            return View("AnimalForm");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
