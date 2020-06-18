@@ -102,6 +102,25 @@ Admin Panel
 }
 
 
+/********************** 
+Blog and Animal Forms
+**********************/
+.formHeader {
+  margin: 30px 0px;
+}
+.formRow {
+  padding-bottom: 10px;
+}
+
+.formButtonRow {
+  margin: 10px 10px 0px 0px;
+  text-align: right;
+}
+
+.formButton {
+  margin-left: 5px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
