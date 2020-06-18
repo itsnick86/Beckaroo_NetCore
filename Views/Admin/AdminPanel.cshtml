@@ -3,7 +3,7 @@
 }
  
 <div class="container BodyContainer text-center">
-  <div class="btn-group btn-group-toggle pb-3" data-toggle="buttons">
+  <div class="btn-group btn-group-toggle formHeader" data-toggle="buttons">
       <label class="btn btn-info active">
         <input type="radio" name="contentTable" value="blog"> Posts
       </label>
@@ -13,7 +13,9 @@
   </div>
 
   <div id="blogTable">
-    <button type="button" class="btn btn-success createButton" asp-action="BlogForm">New Post</button>
+    <a asp-action="BlogForm">
+      <button type="button" class="btn btn-success createButton">New Post</button>
+    </a>
     <table class="table">
       <thead class="thead-light">
           <tr>
@@ -30,7 +32,7 @@
               <td>04-05-2020</td>
               <td>
                 <button class="btn btn-primary" type="submit">Edit</button>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" onclick="alert('Are you sure you want to remove this Blog Post')">Delete</button>
               </td>
           </tr>
           <tr>
@@ -39,7 +41,7 @@
               <td>04-12-2020</td>
               <td>
                 <button class="btn btn-primary" type="submit">Edit</button>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" onclick="alert('Are you sure you want to remove this Blog Post')">Delete</button>
               </td>
           </tr>
           <tr>
@@ -48,7 +50,7 @@
               <td>04-19-2020</td>
               <td>
                 <button class="btn btn-primary" type="submit">Edit</button>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" onclick="alert('Are you sure you want to remove this Blog Post')">Delete</button>
               </td>
           </tr>
       </tbody>
@@ -56,7 +58,9 @@
   </div>
 
   <div id="animalTable" style="display:none">
-    <button type="button" class="btn btn-success createButton" asp-action="AnimalForm">New Animal</button>
+    <a asp-action="AnimalForm">
+      <button type="button" class="btn btn-success createButton">New Animal</button>
+    </a>
     <table class="table">
       <thead class="thead-light">
           <tr>
@@ -73,7 +77,7 @@
               <td>The super rare Lound</td>
               <td>
                 <button class="btn btn-primary" type="submit">Edit</button>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" onclick="alert('Are you sure you want to remove this Animal')">Delete</button>
               </td>
           </tr>
           <tr>
@@ -82,7 +86,7 @@
               <td>A human in the body of a dog</td>
               <td>
                 <button class="btn btn-primary" type="submit">Edit</button>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" onclick="alert('Are you sure you want to remove this Animal')">Delete</button>
               </td>
           </tr>
           <tr>
@@ -91,7 +95,7 @@
               <td>A tiny bobcat that loves trash</td>
               <td>
                 <button class="btn btn-primary" type="submit">Edit</button>
-                <button class="btn btn-danger" type="submit">Delete</button>
+                <button class="btn btn-danger" type="submit" onclick="alert('Are you sure you want to remove this Animal')">Delete</button>
               </td>
           </tr>
       </tbody>
