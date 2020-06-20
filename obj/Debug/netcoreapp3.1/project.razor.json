@@ -20521,6 +20521,16 @@
   "RootNamespace": "Beckaroo_NetCore",
   "Documents": [
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Index.cshtml",
+      "TargetPath": "Views\\Blogs\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Details.cshtml",
+      "TargetPath": "Views\\Animals\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -20546,8 +20556,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Edit.cshtml",
+      "TargetPath": "Views\\Animals\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Create.cshtml",
+      "TargetPath": "Views\\Animals\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Index.cshtml",
+      "TargetPath": "Views\\Animals\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20558,6 +20583,16 @@
     {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/Index.cshtml",
       "TargetPath": "Views\\Admin\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Delete.cshtml",
+      "TargetPath": "Views\\Blogs\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Create.cshtml",
+      "TargetPath": "Views\\Blogs\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20583,6 +20618,21 @@
     {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/AnimalForm.cshtml",
       "TargetPath": "Views\\Admin\\AnimalForm.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Details.cshtml",
+      "TargetPath": "Views\\Blogs\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Edit.cshtml",
+      "TargetPath": "Views\\Blogs\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Delete.cshtml",
+      "TargetPath": "Views\\Animals\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

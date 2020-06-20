@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Beckaroo_NetCore.Models
 {
-    public class BlogModel
+    public class Blog
     {
         public int BlogID { get; set; }
         public string Title { get; set; }

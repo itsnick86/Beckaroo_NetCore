@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Beckaroo_NetCore.Data;
 
 namespace Beckaroo_NetCore
 {
@@ -25,6 +27,9 @@ namespace Beckaroo_NetCore
         {
             services.AddControllersWithViews()
                     .AddRazorRuntimeCompilation();
+
+            services.AddDbContext<Beckaroo_NetCoreContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("Beckaroo_NetCoreContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

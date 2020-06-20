@@ -2,7 +2,7 @@ using System;
 
 namespace Beckaroo_NetCore.Models
 {
-    public class AnimalModel
+    public class Animal
     {
         public int AnimalID { get; set; }
         public string Name { get; set; }
