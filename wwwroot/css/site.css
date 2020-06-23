@@ -94,10 +94,10 @@ Keepers
 }
 
 /********************** 
-Admin Panel
+Admin Panel Common
 **********************/
-.createButton {
-  margin-bottom: 15px;
+.navButton {
+  margin: 0px 0px 15px 5px;
   float: right;
 }
 

@@ -5,7 +5,8 @@
 <div class="container BodyContainer text-center">
     <h2>Admin Login</h2>
     <div class="d-flex justify-content-center pt-4">
-        <form class="" asp-action="AdminPanel">
+        @* Login Screen sends users to Blog Index page *@
+        <form asp-controller="Blogs" asp-action="Index">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" class="form-control" id="username" placeholder="Enter Username">

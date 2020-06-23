@@ -3,35 +3,20 @@ using System;
 using Beckaroo_NetCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Beckaroo_NetCore.Migrations
 {
     [DbContext(typeof(Beckaroo_NetCoreContext))]
-    partial class Beckaroo_NetCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20200622114417_ModelUpdates")]
+    partial class ModelUpdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.5");
-
-            modelBuilder.Entity("Beckaroo_NetCore.Models.Admin", b =>
-                {
-                    b.Property<int>("AdminID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("AdminID");
-
-                    b.ToTable("Admin");
-                });
 
             modelBuilder.Entity("Beckaroo_NetCore.Models.Animal", b =>
                 {

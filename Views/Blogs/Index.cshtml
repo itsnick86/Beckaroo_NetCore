@@ -1,59 +1,62 @@
 @model IEnumerable<Beckaroo_NetCore.Models.Blog>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Blogs";
 }
 
-<h1>Index</h1>
+<div class="container BodyContainer">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PublishDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BlogID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BlogID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BlogID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Blogs</h1>
+
+    <a asp-controller="Animals" asp-action="Index" class="btn btn-dark navButton">To Animals</a>
+    <a asp-action="Create" class="btn btn-success navButton">New Post</a>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BlogID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PublishDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var blog in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => blog.BlogID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blog.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blog.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blog.PublishDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => blog.Image)
+                </td>
+                <td>
+                    @* <a asp-action="Edit" asp-route-id="@item.BlogID" class="btn btn-primary">Edit</a> *@
+                    <a asp-action="Details" asp-route-id="@blog.BlogID" class="btn btn-secondary">View</a>
+                    @* <a asp-action="Delete" asp-route-id="@item.BlogID" class="btn btn-danger">Delete</a> *@
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
