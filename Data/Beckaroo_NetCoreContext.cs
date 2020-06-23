@@ -10,6 +10,7 @@ namespace Beckaroo_NetCore.Data
         {
         }
 
+        public DbSet<Admin> Admin { get; set; }
         public DbSet<Animal> Animal { get; set; }
         public DbSet<Blog> Blog { get; set; }
     }
