@@ -8,7 +8,7 @@
 
     <h1>Blogs</h1>
 
-    <a asp-controller="Animals" asp-action="Index" class="btn btn-dark navButton">To Animals</a>
+    <a asp-controller="Animals" asp-action="Index" class="btn btn-secondary navButton">To Animals</a>
     <a asp-action="Create" class="btn btn-success navButton">New Post</a>
     
     <table class="table">
@@ -52,7 +52,7 @@
                 </td>
                 <td>
                     @* <a asp-action="Edit" asp-route-id="@item.BlogID" class="btn btn-primary">Edit</a> *@
-                    <a asp-action="Details" asp-route-id="@blog.BlogID" class="btn btn-secondary">View</a>
+                    <a asp-action="Edit" asp-route-id="@blog.BlogID" class="btn btn-outline-dark btn-sm">Edit</a>
                     @* <a asp-action="Delete" asp-route-id="@item.BlogID" class="btn btn-danger">Delete</a> *@
                 </td>
             </tr>
