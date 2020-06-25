@@ -101,6 +101,9 @@ Admin Panel Common
   float: right;
 }
 
+.hideButton {
+  display: none;
+}
 
 /********************** 
 Blog and Animal Forms

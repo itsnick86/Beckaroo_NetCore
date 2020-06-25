@@ -25,21 +25,20 @@ namespace Beckaroo_NetCore.Controllers
             return View(await _context.Blog.ToListAsync());
         }
 
-        // GET: Blogs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // UPSERT: Blogs/UpsertBlog
+        // If a BlogID is provided then Blog detail will be returned in Upsert form
+        public async Task<IActionResult> UpsertBlog(int? id)
         {
             if (id == null)
             {
-                return NotFound();
+                return View();
             }
 
-            var blog = await _context.Blog
-                .FirstOrDefaultAsync(m => m.BlogID == id);
+            var blog = await _context.Blog.FindAsync(id);
             if (blog == null)
             {
                 return NotFound();
             }
-
             return View(blog);
         }
 

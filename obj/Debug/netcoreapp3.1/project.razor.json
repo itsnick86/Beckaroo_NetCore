@@ -20591,6 +20591,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/UpsertBlog.cshtml",
+      "TargetPath": "Views\\Blogs\\UpsertBlog.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Create.cshtml",
       "TargetPath": "Views\\Blogs\\Create.cshtml",
       "FileKind": "mvc"
