@@ -1,15 +1,15 @@
 @model Beckaroo_NetCore.Models.Blog
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = (Model != null ? "Edit Blog" : "Create Blog");
 }
 
 <div class="container BodyContainer">
-    <h1>Edit a Blog</h1>
+    <h1>@(Model != null ? "Edit a Blog" : "Create a Blog")</h1>
     <hr />
     <div class="row">
         <div class="col-md-6">
-            <form asp-action="Edit">
+            <form asp-action="UpsertBlog">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="BlogID" />
                 <div class="form-group">
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <input type="submit" value="Save" name="submit" class="btn btn-primary" />
                     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Delete" name="submit" class="btn btn-danger" onclick="return confirm('Are you sure you would like to delete this Blog article?')">
+                    <input type="submit" value="Delete" name="submit" class="@(Model != null ? "btn btn-danger" : "hideButton")" onclick="return confirm('Are you sure you would like to delete this Blog article?')">
                 </div>
             </form>
         </div>
