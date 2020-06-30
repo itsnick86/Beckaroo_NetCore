@@ -20586,18 +20586,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Delete.cshtml",
-      "TargetPath": "Views\\Blogs\\Delete.cshtml",
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/EditBlog.cshtml",
+      "TargetPath": "Views\\Blogs\\EditBlog.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/UpsertBlog.cshtml",
-      "TargetPath": "Views\\Blogs\\UpsertBlog.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Create.cshtml",
-      "TargetPath": "Views\\Blogs\\Create.cshtml",
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/CreateBlog.cshtml",
+      "TargetPath": "Views\\Blogs\\CreateBlog.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20623,16 +20618,6 @@
     {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/AnimalForm.cshtml",
       "TargetPath": "Views\\Admin\\AnimalForm.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Details.cshtml",
-      "TargetPath": "Views\\Blogs\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Blogs/Edit.cshtml",
-      "TargetPath": "Views\\Blogs\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

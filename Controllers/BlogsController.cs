@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Beckaroo_NetCore.Data;
 using Beckaroo_NetCore.Models;
@@ -25,38 +27,31 @@ namespace Beckaroo_NetCore.Controllers
             return View(await _context.Blog.ToListAsync());
         }
 
-        // UPSERT: Blogs/UpsertBlog
-        // If a BlogID is provided then Blog detail will be returned in Upsert form
-        public async Task<IActionResult> UpsertBlog(int? id)
-        {
-            if (id == null)
-            {
-                return View();
-            }
-
-            var blog = await _context.Blog.FindAsync(id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-            return View(blog);
-        }
-
-        // GET: Blogs/Create
-        public IActionResult Create()
+        // GET: Blogs/CreateBlog
+        public IActionResult CreateBlog()
         {
             return View();
         }
 
-        // POST: Blogs/Create
+        // POST: Blogs/CreateBlog
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BlogID,Title,Author,PublishDate,Image,Content")] Blog blog)
+        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,Content")] Blog blog, IFormFile image)
         {
             if (ModelState.IsValid)
             {
+                if (image != null && image.Length > 0)
+                {
+                    var fileName = Path.GetFileName(image.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\blog", fileName);
+                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                    {
+                        await image.CopyToAsync(fileSteam);
+                    }
+                    blog.Image = fileName;
+                }
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -64,8 +59,8 @@ namespace Beckaroo_NetCore.Controllers
             return View(blog);
         }
 
-        // GET: Blogs/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Blogs/EditBlog/5
+        public async Task<IActionResult> EditBlog(int? id)
         {
             if (id == null)
             {
@@ -80,70 +75,61 @@ namespace Beckaroo_NetCore.Controllers
             return View(blog);
         }
 
-        // POST: Blogs/Edit/5
+        // POST: Blogs/EditBlog/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BlogID,Title,Author,PublishDate,Image,Content")] Blog blog)
+        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,Content")] Blog blog, IFormFile image, string submit)
         {
-            if (id != blog.BlogID)
+            if (submit == "Delete")
             {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(blog);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BlogExists(blog.BlogID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Blog.Remove(blog);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                if (id != blog.BlogID)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        if (image != null && image.Length > 0)
+                        {
+                            var fileName = Path.GetFileName(image.FileName);
+                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\blog", fileName);
+                            using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                            {
+                                await image.CopyToAsync(fileSteam);
+                            }
+                            blog.Image = fileName;
+                        }
+                        _context.Update(blog);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!BlogExists(blog.BlogID))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
+            }
             return View(blog);
         }
 
-        // GET: Blogs/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var blog = await _context.Blog
-                .FirstOrDefaultAsync(m => m.BlogID == id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-
-            return View(blog);
-        }
-
-        // POST: Blogs/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var blog = await _context.Blog.FindAsync(id);
-            _context.Blog.Remove(blog);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
+        // Checks to see if the given ID is in the database
         private bool BlogExists(int id)
         {
             return _context.Blog.Any(e => e.BlogID == id);
