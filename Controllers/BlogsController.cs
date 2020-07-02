@@ -38,17 +38,17 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,Content")] Blog blog, IFormFile image)
+        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,ImagePath,Content")] Blog blog)
         {
             if (ModelState.IsValid)
             {
-                if (image != null && image.Length > 0)
+                if (blog.ImageFile != null && blog.ImageFile.Length > 0)
                 {
-                    var fileName = Path.GetFileName(image.FileName);
+                    var fileName = Path.GetFileName(blog.ImageFile.FileName);
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\blog", fileName);
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
                     {
-                        await image.CopyToAsync(fileSteam);
+                        await blog.ImageFile.CopyToAsync(fileSteam);
                     }
                     blog.Image = fileName;
                 }
@@ -80,7 +80,7 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,Content")] Blog blog, IFormFile image, string submit)
+        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog, string submit)
         {
             if (submit == "Delete")
             {
@@ -99,13 +99,13 @@ namespace Beckaroo_NetCore.Controllers
                 {
                     try
                     {
-                        if (image != null && image.Length > 0)
+                        if (blog.ImageFile != null && blog.ImageFile.Length > 0)
                         {
-                            var fileName = Path.GetFileName(image.FileName);
-                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\blog", fileName);
+                            var fileName = Path.GetFileName(blog.ImageFile.FileName);
+                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/blog", fileName);
                             using (var fileSteam = new FileStream(filePath, FileMode.Create))
                             {
-                                await image.CopyToAsync(fileSteam);
+                                await blog.ImageFile.CopyToAsync(fileSteam);
                             }
                             blog.Image = fileName;
                         }

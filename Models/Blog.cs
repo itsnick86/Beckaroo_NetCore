@@ -1,4 +1,6 @@
 using System;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace Beckaroo_NetCore.Models
@@ -14,6 +16,8 @@ namespace Beckaroo_NetCore.Models
         [Display(Name="Publish Date")]
         public DateTime PublishDate { get; set; }
         public string Image { get; set; }
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
         public string Content { get; set; }
     }
 }
