@@ -38,14 +38,14 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,ImagePath,Content")] Blog blog)
+        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog)
         {
             if (ModelState.IsValid)
             {
                 if (blog.ImageFile != null && blog.ImageFile.Length > 0)
                 {
                     var fileName = Path.GetFileName(blog.ImageFile.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\blog", fileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/blog", fileName);
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
                     {
                         await blog.ImageFile.CopyToAsync(fileSteam);
