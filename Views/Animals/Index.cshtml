@@ -1,53 +1,60 @@
 @model IEnumerable<Beckaroo_NetCore.Models.Animal>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Animals";
 }
 
-<h1>Index</h1>
+    <div class="container BodyContainer">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageMain)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageSecondary)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageMain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageSecondary)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AnimalID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AnimalID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AnimalID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Animals</h1>
+
+    <a asp-controller="Blogs" asp-action="Index" class="btn btn-secondary navButton">To Blog</a>
+    <a asp-action="CreateAnimal" class="btn btn-success navButton">New Animal</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Species)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageMain)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageSecondary)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var animal in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => animal.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => animal.Species)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => animal.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => animal.ImageMain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => animal.ImageSecondary)
+                </td>
+                <td>
+                <a asp-action="EditAnimal" asp-route-id="@animal.AnimalID" class="btn btn-outline-dark btn-sm">Edit</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
