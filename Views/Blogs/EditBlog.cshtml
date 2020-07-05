@@ -5,7 +5,7 @@
 }
 
 <div class="container BodyContainer">
-    <h1>Edit a Blog</h1>
+    <h1>Edit a Blog Post</h1>
     <hr />
     <div class="row">
         <div class="col-md-10">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Content" class="control-label"></label>
-                    <textarea asp-for="Content" name="richtextarea" class="form-control richtextarea" rows="5"></textarea>
+                    <textarea asp-for="Content" name="blogContent" class="form-control richtextarea" rows="5"></textarea>
                     <span asp-validation-for="Content" class="text-danger"></span>
                 </div>
                 <div class="form-group">

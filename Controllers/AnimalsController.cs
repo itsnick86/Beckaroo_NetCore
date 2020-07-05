@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Beckaroo_NetCore.Data;
 using Beckaroo_NetCore.Models;
@@ -43,8 +45,8 @@ namespace Beckaroo_NetCore.Controllers
             return View(animal);
         }
 
-        // GET: Animals/Create
-        public IActionResult Create()
+        // GET: Animals/CreateAnimal
+        public IActionResult CreateAnimal()
         {
             return View();
         }
@@ -54,10 +56,36 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AnimalID,Name,Description,ImageMain,ImageSecondary")] Animal animal)
+        public async Task<IActionResult> CreateAnimal([Bind("AnimalID,Name,Description,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string animalDescription)
         {
             if (ModelState.IsValid)
             {
+                animal.Description = animalDescription.ToString();
+
+                //Save Main Image (Picture displayed on the Zoo page)
+                if (animal.ImageMainFile != null && animal.ImageMainFile.Length > 0)
+                {
+                    var fileName = Path.GetFileName(animal.ImageMainFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/blog", fileName);
+                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                    {
+                        await animal.ImageMainFile.CopyToAsync(fileSteam);
+                    }
+                    animal.ImageMain = fileName;
+                }
+
+                //Save Secondary Image (Modal Picture)
+                if (animal.ImageSecondaryFile != null && animal.ImageSecondaryFile.Length > 0)
+                {
+                    var fileName = Path.GetFileName(animal.ImageSecondaryFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/blog", fileName);
+                    using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                    {
+                        await animal.ImageSecondaryFile.CopyToAsync(fileSteam);
+                    }
+                    animal.ImageSecondary = fileName;
+                }
+
                 _context.Add(animal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

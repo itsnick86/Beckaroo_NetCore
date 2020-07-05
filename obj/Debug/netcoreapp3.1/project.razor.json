@@ -20541,11 +20541,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/AdminPanel.cshtml",
-      "TargetPath": "Views\\Admin\\AdminPanel.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -20556,18 +20551,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Edit.cshtml",
-      "TargetPath": "Views\\Animals\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Shared/_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Create.cshtml",
-      "TargetPath": "Views\\Animals\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20596,8 +20581,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/EditAnimal.cshtml",
+      "TargetPath": "Views\\Animals\\EditAnimal.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/DailyTails/Blog.cshtml",
       "TargetPath": "Views\\DailyTails\\Blog.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/CreateAnimal.cshtml",
+      "TargetPath": "Views\\Animals\\CreateAnimal.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20608,16 +20603,6 @@
     {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Zoo/Index.cshtml",
       "TargetPath": "Views\\Zoo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/BlogForm.cshtml",
-      "TargetPath": "Views\\Admin\\BlogForm.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Admin/AnimalForm.cshtml",
-      "TargetPath": "Views\\Admin\\AnimalForm.cshtml",
       "FileKind": "mvc"
     },
     {

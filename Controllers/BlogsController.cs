@@ -38,10 +38,12 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog)
+        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog, string blogContent)
         {
             if (ModelState.IsValid)
             {
+                blog.Content = blogContent.ToString();
+
                 if (blog.ImageFile != null && blog.ImageFile.Length > 0)
                 {
                     var fileName = Path.GetFileName(blog.ImageFile.FileName);
@@ -80,7 +82,7 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog, string submit)
+        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog, string submit, string blogContent)
         {
             if (submit == "Delete")
             {
@@ -99,6 +101,8 @@ namespace Beckaroo_NetCore.Controllers
                 {
                     try
                     {
+                        blog.Content = blogContent.ToString();
+
                         if (blog.ImageFile != null && blog.ImageFile.Length > 0)
                         {
                             var fileName = Path.GetFileName(blog.ImageFile.FileName);

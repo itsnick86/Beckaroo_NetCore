@@ -1,3 +1,5 @@
+@model Beckaroo_NetCore.Models.Admin
+
 @{
     ViewData["Title"] = "Admin Login";
 }
@@ -5,15 +7,17 @@
 <div class="container BodyContainer text-center">
     <h2>Admin Login</h2>
     <div class="d-flex justify-content-center pt-4">
-        @* Login Screen sends users to Blog Index page *@
-        <form asp-controller="Blogs" asp-action="Index">
+        <form asp-action="LogIn">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" placeholder="Enter Username">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" type="text" placeholder="Enter Username" />
+                <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="username" placeholder="Enter Password">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" type="password" placeholder="Enter Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <button class="btn btn-success" type="submit">Login</button>
         </form>
