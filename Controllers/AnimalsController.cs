@@ -51,12 +51,12 @@ namespace Beckaroo_NetCore.Controllers
             return View();
         }
 
-        // POST: Animals/Create
+        // POST: Animals/CreateAnimal
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAnimal([Bind("AnimalID,Name,Description,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string animalDescription)
+        public async Task<IActionResult> CreateAnimal([Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string animalDescription)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace Beckaroo_NetCore.Controllers
                 if (animal.ImageMainFile != null && animal.ImageMainFile.Length > 0)
                 {
                     var fileName = Path.GetFileName(animal.ImageMainFile.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/blog", fileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
                     {
                         await animal.ImageMainFile.CopyToAsync(fileSteam);
@@ -78,7 +78,7 @@ namespace Beckaroo_NetCore.Controllers
                 if (animal.ImageSecondaryFile != null && animal.ImageSecondaryFile.Length > 0)
                 {
                     var fileName = Path.GetFileName(animal.ImageSecondaryFile.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/blog", fileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
                     using (var fileSteam = new FileStream(filePath, FileMode.Create))
                     {
                         await animal.ImageSecondaryFile.CopyToAsync(fileSteam);
@@ -93,8 +93,8 @@ namespace Beckaroo_NetCore.Controllers
             return View(animal);
         }
 
-        // GET: Animals/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Animals/EditAnimal/5
+        public async Task<IActionResult> EditAnimal(int? id)
         {
             if (id == null)
             {
@@ -109,12 +109,12 @@ namespace Beckaroo_NetCore.Controllers
             return View(animal);
         }
 
-        // POST: Animals/Edit/5
+        // POST: Animals/EditAnimal/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AnimalID,Name,Description,ImageMain,ImageSecondary")] Animal animal)
+        public async Task<IActionResult> EditAnimal(int id, [Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string animalDescription)
         {
             if (id != animal.AnimalID)
             {
@@ -125,6 +125,32 @@ namespace Beckaroo_NetCore.Controllers
             {
                 try
                 {
+                    animal.Description = animalDescription.ToString();
+
+                    //Save Main Image (Picture displayed on the Zoo page)
+                    if (animal.ImageMainFile != null && animal.ImageMainFile.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(animal.ImageMainFile.FileName);
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
+                        using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                        {
+                            await animal.ImageMainFile.CopyToAsync(fileSteam);
+                        }
+                        animal.ImageMain = fileName;
+                    }
+
+                    //Save Secondary Image (Modal Picture)
+                    if (animal.ImageSecondaryFile != null && animal.ImageSecondaryFile.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(animal.ImageSecondaryFile.FileName);
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
+                        using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                        {
+                            await animal.ImageSecondaryFile.CopyToAsync(fileSteam);
+                        }
+                        animal.ImageSecondary = fileName;
+                    }
+
                     _context.Update(animal);
                     await _context.SaveChangesAsync();
                 }
