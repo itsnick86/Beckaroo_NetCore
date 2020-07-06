@@ -1,47 +1,60 @@
 @model Beckaroo_NetCore.Models.Animal
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Update Animal";
 }
 
-<h1>Edit</h1>
-
-<h4>Animal</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AnimalID" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageMain" class="control-label"></label>
-                <input asp-for="ImageMain" class="form-control" />
-                <span asp-validation-for="ImageMain" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageSecondary" class="control-label"></label>
-                <input asp-for="ImageSecondary" class="form-control" />
-                <span asp-validation-for="ImageSecondary" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="container BodyContainer">
+    <h1>Update an Animal</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-10">
+            <form asp-action="EditAnimal" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="AnimalID" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control col-lg-4" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Species" class="control-label"></label>
+                    <select asp-for="Species" name="Species" class="form-control col-lg-3">
+                        <option selected disabled>Select one...</option>
+                        <option value="Canine">Canine</option>
+                        <option value="Feline">Feline</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="Species" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="control-label"></label>
+                    <input asp-for="DateOfBirth" class="form-control col-lg-3" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageMain" class="control-label"></label>
+                    <input asp-for="ImageMainFile" name="ImageMainFile" class="form-control-file col-lg-6" type="file" />
+                    <span asp-validation-for="ImageMain" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageSecondary" class="control-label"></label>
+                    <input asp-for="ImageSecondaryFile" name="ImageSecondaryFile" class="form-control-file col-lg-6" type="file" />
+                    <span asp-validation-for="ImageSecondary" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea asp-for="Description" name="animalDescription" class="form-control richtextarea" rows="5"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" name="submit" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    <input type="submit" value="Delete" name="submit" class="btn btn-danger" onclick="return confirm('Are you sure you would like to remove this Animal?')">
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

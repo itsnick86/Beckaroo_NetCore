@@ -22,6 +22,10 @@ Global
   font-size: 20px;
   font-weight: 600;
 }
+
+.form-control-file {
+  padding-left: 0px;
+}
 /********************** 
 Nav Bar 
 **********************/
