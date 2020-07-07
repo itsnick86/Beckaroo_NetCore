@@ -20526,11 +20526,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Details.cshtml",
-      "TargetPath": "Views\\Animals\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -20603,11 +20598,6 @@
     {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Zoo/Index.cshtml",
       "TargetPath": "Views\\Zoo\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Animals/Delete.cshtml",
-      "TargetPath": "Views\\Animals\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

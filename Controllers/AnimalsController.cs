@@ -114,91 +114,72 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditAnimal(int id, [Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string animalDescription)
+        public async Task<IActionResult> EditAnimal(int id, [Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string submit, string animalDescription)
         {
-            if (id != animal.AnimalID)
+            if (submit == "Delete")
             {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    animal.Description = animalDescription.ToString();
-
-                    //Save Main Image (Picture displayed on the Zoo page)
-                    if (animal.ImageMainFile != null && animal.ImageMainFile.Length > 0)
-                    {
-                        var fileName = Path.GetFileName(animal.ImageMainFile.FileName);
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
-                        using (var fileSteam = new FileStream(filePath, FileMode.Create))
-                        {
-                            await animal.ImageMainFile.CopyToAsync(fileSteam);
-                        }
-                        animal.ImageMain = fileName;
-                    }
-
-                    //Save Secondary Image (Modal Picture)
-                    if (animal.ImageSecondaryFile != null && animal.ImageSecondaryFile.Length > 0)
-                    {
-                        var fileName = Path.GetFileName(animal.ImageSecondaryFile.FileName);
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
-                        using (var fileSteam = new FileStream(filePath, FileMode.Create))
-                        {
-                            await animal.ImageSecondaryFile.CopyToAsync(fileSteam);
-                        }
-                        animal.ImageSecondary = fileName;
-                    }
-
-                    _context.Update(animal);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AnimalExists(animal.AnimalID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                _context.Animal.Remove(animal);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else
+            {
+                if (id != animal.AnimalID)
+                {
+                    return NotFound();
+                }
+
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        animal.Description = animalDescription.ToString();
+
+                        //Save Main Image (Picture displayed on the Zoo page)
+                        if (animal.ImageMainFile != null && animal.ImageMainFile.Length > 0)
+                        {
+                            var fileName = Path.GetFileName(animal.ImageMainFile.FileName);
+                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
+                            using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                            {
+                                await animal.ImageMainFile.CopyToAsync(fileSteam);
+                            }
+                            animal.ImageMain = fileName;
+                        }
+
+                        //Save Secondary Image (Modal Picture)
+                        if (animal.ImageSecondaryFile != null && animal.ImageSecondaryFile.Length > 0)
+                        {
+                            var fileName = Path.GetFileName(animal.ImageSecondaryFile.FileName);
+                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/animal", fileName);
+                            using (var fileSteam = new FileStream(filePath, FileMode.Create))
+                            {
+                                await animal.ImageSecondaryFile.CopyToAsync(fileSteam);
+                            }
+                            animal.ImageSecondary = fileName;
+                        }
+
+                        _context.Update(animal);
+                        await _context.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!AnimalExists(animal.AnimalID))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    return RedirectToAction(nameof(Index));
+                }
+            }
             return View(animal);
         }
 
-        // GET: Animals/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var animal = await _context.Animal
-                .FirstOrDefaultAsync(m => m.AnimalID == id);
-            if (animal == null)
-            {
-                return NotFound();
-            }
-
-            return View(animal);
-        }
-
-        // POST: Animals/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var animal = await _context.Animal.FindAsync(id);
-            _context.Animal.Remove(animal);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
+        // Checks to see if the given ID is in the database
         private bool AnimalExists(int id)
         {
             return _context.Animal.Any(e => e.AnimalID == id);
