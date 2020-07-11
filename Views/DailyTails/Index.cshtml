@@ -1,3 +1,5 @@
+@model Beckaroo_NetCore.Models.DailyTailsViewModel
+
 @{
     ViewData["Title"] = "Daily Tails";
 }
@@ -7,26 +9,21 @@
     <p>There's always something going on around this place. Click on the different stories below to read about our fun times.</p>
 
     <div class="pt-5">
-        <h3>May</h3>
-        <div class="row">
-            <ul>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>Rufus the running dog</li></a>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>Fletcher...the new girl on the block</li></a>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>I'm a Zoo Keeper now!</li></a>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>What it's like having 6 cats plus fosters</li></a>
-            </ul>
-        </div>
-    </div>
-    <div>
-        <h3>April</h3>
-        <div class="row">
-            <ul>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>Pibbles and his "Medicine"</li></a>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>My soul mate...no I'm not talking about my Husband</li></a>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>Hiccup at my food again</li></a>
-                <a class="" asp-controller="DailyTails" asp-action="BlogGet"><li>What it's like having 7 dog</li></a>
-            </ul>
-        </div>
-    </div>
+        @foreach (var year in Model.ViewDate.Select(x => x.Year).Distinct().Reverse())
+        {
+            <h2>@year</h2>
 
+            @foreach (var month in Model.ViewDate.Where(x => x.Year == year).Select(x => x.ToString("MMMM")).Distinct())
+            {
+                <h3>@month.ToString()</h3>
+
+                <ul>
+                    @foreach (var blog in Model.Blogs.Where(x => x.PublishDate.ToString("MMMM") == month && x.PublishDate.Year == year))
+                    {
+                        <a class="" asp-controller="DailyTails" asp-action="BlogGet" asp-route-id="@blog.BlogID"><li>@blog.Title</li></a>
+                    }
+                </ul>
+            }
+        }
+    </div>
 </div>
