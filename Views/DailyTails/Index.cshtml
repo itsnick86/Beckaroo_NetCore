@@ -20,7 +20,7 @@
                 <ul>
                     @foreach (var blog in Model.Blogs.Where(x => x.PublishDate.ToString("MMMM") == month && x.PublishDate.Year == year))
                     {
-                        <a class="" asp-controller="DailyTails" asp-action="BlogGet" asp-route-id="@blog.BlogID"><li>@blog.Title</li></a>
+                        <a class="" asp-controller="DailyTails" asp-action="Blog" asp-route-id="@blog.BlogID"><li>@blog.Title</li></a>
                     }
                 </ul>
             }

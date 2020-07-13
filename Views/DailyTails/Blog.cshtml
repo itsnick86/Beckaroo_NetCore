@@ -1,29 +1,20 @@
+@model Beckaroo_NetCore.Models.Blog
+
 @{
-    ViewData["Title"] = "Blog";
+    ViewData["Title"] = "Model.Blog.Title";
 }
 
 <div class="container BodyContainer">
     <div class="col-10 text-center offset-1">
-        <h1>Title</h1>
-        <h3>Author: Becky Edwards</h3>
-        <h4>05/23/2020</h4>
-        <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
+        <h1>@Model.Title</h1>
+        <h3>Author: @Model.Author</h3>
+        <h4>@Html.DisplayFor(m => m.PublishDate)</h4>
+        @if (Model.Image != null)
+        {
+            <img class="StandardImage" src="~/images/@Model.Image" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
+        }
         <div class="BlogBody text-justify">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae fringilla ante. Nulla ut augue accumsan, aliquet lacus id, mattis quam. Donec non mollis odio, et rhoncus nisi. Donec feugiat dolor a sapien suscipit efficitur. Nunc dignissim suscipit dui ut feugiat. Sed eu ultricies neque, eget dapibus ante. Nulla at suscipit libero. Suspendisse non placerat purus. Ut massa nisl, ullamcorper vitae lectus at, faucibus tempus enim. Ut diam mi, tincidunt posuere tellus quis, volutpat feugiat diam. Phasellus lobortis est posuere, feugiat diam vel, vestibulum ante. Nullam purus mi, vestibulum a ipsum sed, tristique feugiat tortor. Suspendisse convallis elit urna, eget sagittis massa ultrices at. Sed diam nisl, ultrices vel velit at, tempus condimentum velit.
-            </p>
-            <p>
-                Phasellus consectetur erat nec tellus laoreet, a varius orci dapibus. Pellentesque enim nisi, commodo id feugiat ut, ultrices ac enim. Proin augue mauris, mattis pellentesque vulputate non, commodo in enim. Nullam in dolor eu turpis finibus sagittis dignissim non tellus. Nunc convallis elementum mauris, at faucibus neque consequat at. Nunc varius ligula sit amet libero molestie, non semper urna rutrum. Vestibulum scelerisque luctus fringilla. Donec ut risus auctor, ultrices velit sit amet, placerat mauris.
-            </p>
-            <p>
-                Pellentesque volutpat eget sapien ac ultrices. Vestibulum at metus pharetra, faucibus elit sit amet, vestibulum felis. Vestibulum tempus urna a vehicula consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris tellus leo, facilisis ut tincidunt vitae, fringilla et dui. Aliquam erat volutpat. Morbi bibendum, ipsum porta venenatis blandit, erat lacus commodo diam, ac viverra felis eros in felis. Aenean non ipsum blandit, porttitor est non, feugiat dui. Donec ullamcorper sollicitudin purus, vitae varius massa maximus ac. Maecenas sit amet massa nibh. Morbi egestas convallis sem, in pellentesque ipsum. Nullam sit amet venenatis libero. Aliquam varius dictum euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras blandit, eros ut tincidunt pharetra, nunc elit ornare leo, condimentum auctor odio dolor eget magna. Ut mollis nunc vel ornare euismod.
-            </p>
-            <p>
-                Praesent eu libero malesuada, porttitor lorem ac, sagittis metus. Fusce sollicitudin a quam auctor bibendum. Phasellus auctor iaculis nunc et pellentesque. Sed euismod imperdiet neque vitae malesuada. Cras ultricies libero nec turpis sagittis, ac feugiat massa rhoncus. Duis ullamcorper et est eu eleifend. Quisque quis consequat ex. Proin diam risus, semper et leo nec, sodales ornare nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <p>
-                Curabitur et orci id augue imperdiet dignissim in nec nunc. Proin pellentesque consectetur neque at porta. Fusce commodo eleifend elit, vel egestas felis semper ac. Suspendisse ultricies efficitur tortor id maximus. Suspendisse euismod varius tristique. Ut iaculis sed velit nec malesuada. Praesent placerat orci sed tincidunt tincidunt. In vestibulum consectetur nunc ut laoreet. Morbi dignissim libero vitae lacus faucibus laoreet.
-            </p>
+            @Html.Raw(Model.Content)
         </div>
     </div>
 </div>

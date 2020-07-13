@@ -22,7 +22,7 @@ namespace Beckaroo_NetCore.Controllers
             _context = context;
         }
 
-        // GET: Blogs
+        // GET: DailyTails
         public async Task<IActionResult> Index()
         {
             var dailyTailsViewModel = new DailyTailsViewModel();
@@ -38,9 +38,22 @@ namespace Beckaroo_NetCore.Controllers
             return View(dailyTailsViewModel);
         }
 
-        public IActionResult BlogGet()
+        // GET: DailyTails/Blog/5
+        public async Task<IActionResult> Blog(int? id)
         {
-            return View("Blog");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var blog = await _context.Blog
+                .FirstOrDefaultAsync(m => m.BlogID == id);
+            if (blog == null)
+            {
+                return NotFound();
+            }
+
+            return View(blog);
         }
     }
 }
