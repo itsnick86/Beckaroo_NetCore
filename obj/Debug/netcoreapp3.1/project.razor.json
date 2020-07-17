@@ -20601,6 +20601,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Zoo/_AnimalDetail.cshtml",
+      "TargetPath": "Views\\Zoo\\_AnimalDetail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"

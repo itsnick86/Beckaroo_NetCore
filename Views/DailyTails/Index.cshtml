@@ -8,7 +8,7 @@
     <h1>Daily Tails</h1>
     <p>There's always something going on around this place. Click on the different stories below to read about our fun times.</p>
 
-    <div class="pt-5">
+    @* <div class="pt-5">
         @foreach (var year in Model.ViewDate.Select(x => x.Year).Distinct().Reverse())
         {
             <h2>@year</h2>
@@ -24,6 +24,24 @@
                     }
                 </ul>
             }
+        }
+    </div> *@
+    <div class="pt-5">
+        @foreach (var year in Model.ViewDate.Select(x => x.Year).Distinct().Reverse())
+        {
+            <h2>@year</h2>
+            <div class="row">
+            @foreach (var blog in Model.Blogs.Where(x => x.PublishDate.Year == year))
+            {
+                <div class="col-md-6 col-lg-4">
+                    <a class="BlogPost" asp-controller="DailyTails" asp-action="Blog" asp-route-id="@blog.BlogID">
+                        <img class="StandardImage" src="~/images/@blog.Image" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
+                        <h4 class="BlogTitle">@blog.Title</h4>
+                        <h5 class="BlogDate">@Html.DisplayFor(m => blog.PublishDate)</h5>
+                    </a>
+                </div>
+            }
+            </div>
         }
     </div>
 </div>
