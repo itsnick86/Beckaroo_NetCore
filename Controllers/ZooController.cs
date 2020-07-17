@@ -6,21 +6,42 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Beckaroo_NetCore.Models;
+using Beckaroo_NetCore.Data;
 
 namespace Beckaroo_NetCore.Controllers
 {
     public class ZooController : Controller
     {
-        private readonly ILogger<ZooController> _logger;
+        private readonly Beckaroo_NetCoreContext _context;
 
-        public ZooController(ILogger<ZooController> logger)
+        public ZooController(Beckaroo_NetCoreContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        // public async Task<IActionResult> AnimalDetail(int? animalID)
+        // {
+        //     if (animalID == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     var animal = await _context.Animal.FindAsync(animalID);
+        //     if (animal == null)
+        //     {
+        //         return NotFound();
+        //     }
+        //     return View("_AnimalDetail", animal);
+        // }
+
+        public IActionResult AnimalDetail()
+        {
+            return View("_AnimalDetail");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

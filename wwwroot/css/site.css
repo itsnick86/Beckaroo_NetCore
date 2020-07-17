@@ -87,11 +87,33 @@ Keepers
 }
 
 /********************** 
+Daily Tails
+**********************/
+.BlogTitle {
+  text-align: center;
+  padding: 5px 0px;
+}
+
+.BlogDate {
+  text-align: center;
+}
+
+a.BlogPost {
+  text-decoration: none;
+  color: black;
+}
+
+/********************** 
 The Zoo
 **********************/
 .AnimalName {
   text-align: center;
   padding: 5px 0px 10px;
+}
+
+a.ZooAnimal {
+  text-decoration: none;
+  color: black;
 }
 
 /********************** 
