@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Beckaroo_NetCore.Models;
 using Beckaroo_NetCore.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Beckaroo_NetCore.Controllers
 {
@@ -19,29 +20,24 @@ namespace Beckaroo_NetCore.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.Animal.ToListAsync());
         }
 
-        // public async Task<IActionResult> AnimalDetail(int? animalID)
-        // {
-        //     if (animalID == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     var animal = await _context.Animal.FindAsync(animalID);
-        //     if (animal == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     return View("_AnimalDetail", animal);
-        // }
-
-        public IActionResult AnimalDetail()
+        public async Task<IActionResult> AnimalDetail(int? animalID)
         {
-            return View("_AnimalDetail");
+            if (animalID == null)
+            {
+                return NotFound();
+            }
+
+            var animal = await _context.Animal.FindAsync(animalID);
+            if (animal == null)
+            {
+                return NotFound();
+            }
+            return View("_AnimalDetail", animal);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
