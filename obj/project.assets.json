@@ -8618,19 +8618,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/nickedwards/.nuget/packages/": {}
+    "/Users/nicholasedwards/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Beckaroo_NetCore.csproj",
+      "projectUniqueName": "/Users/nicholasedwards/code/projects/Beckaroo_NetCore/Beckaroo_NetCore.csproj",
       "projectName": "Beckaroo_NetCore",
-      "projectPath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/Beckaroo_NetCore.csproj",
-      "packagesPath": "/Users/nickedwards/.nuget/packages/",
-      "outputPath": "/Users/nickedwards/Documents/code/projects/Beckaroo_NetCore/obj/",
+      "projectPath": "/Users/nicholasedwards/code/projects/Beckaroo_NetCore/Beckaroo_NetCore.csproj",
+      "packagesPath": "/Users/nicholasedwards/.nuget/packages/",
+      "outputPath": "/Users/nicholasedwards/code/projects/Beckaroo_NetCore/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/nickedwards/.nuget/NuGet/NuGet.Config"
+        "/Users/nicholasedwards/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8693,7 +8693,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
       }
     }
   }

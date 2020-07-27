@@ -1,3 +1,5 @@
+@model IEnumerable<Beckaroo_NetCore.Models.Animal>
+
 @{
     ViewData["Title"] = "The Zoo";
 }
@@ -8,8 +10,12 @@
 
     <h3>Canines</h3>
     <div class="row">
+        @* @foreach (var dog in Model.Where(dog => dog.Species == "Canine"))
+        {
+            
+        } *@
         <div class="col-md-6 col-lg-4">
-            <a href="#" class="ZooAnimal" onclick="AnimalModal()">
+            <a href="#" class="ZooAnimal" onclick="AnimalModal(2)">
             <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
             <h3 class="AnimalName">Abby</h3>
             </a>
@@ -92,11 +98,11 @@
 
 @section Scripts {
     <script>
-        function AnimalModal() {
+        function AnimalModal(animalID) {
             $.ajax({
                 type: "GET",
                 url: '@Url.Action("AnimalDetail", "Zoo")',
-                data: "{ }",
+                data: { animalID: animalID },
                 contentType: "application/json; charset=utf-8",
                 success: function(result){
                     $("#AnimalModal").html(result);

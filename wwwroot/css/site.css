@@ -116,6 +116,11 @@ a.ZooAnimal {
   color: black;
 }
 
+.AnimalBirthday,
+.AnimalDescription {
+  padding-top: 10px;
+}
+
 /********************** 
 Keepers
 **********************/
