@@ -9,87 +9,40 @@
     <p>Here are all the animals in the Zoo. Click on their pictures to find out more about them!</p>
 
     <h3>Canines</h3>
-    <div class="row">
-        @* @foreach (var dog in Model.Where(dog => dog.Species == "Canine"))
+    <div class="row AnimalSection">
+        @foreach (var dog in Model.Where(dog => dog.Species == "Canine"))
         {
-            
-        } *@
-        <div class="col-md-6 col-lg-4">
-            <a href="#" class="ZooAnimal" onclick="AnimalModal(2)">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Abby</h3>
-            </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Cooper</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Mojo</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Izzy</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Rufus</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Aspen</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Fletcher</h3>
-        </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="#@dog.Name" class="ZooAnimal" onclick="AnimalModal(@dog.AnimalID)">
+                    <img class="StandardImage" src="~/images/animal/@dog.ImageMain" alt="">
+                    <h3 class="AnimalName">@dog.Name</h3>
+                </a>
+            </div>
+        }
     </div>
     <h3>Felines</h3>
-    <div class="row">
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Ridley</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Ryder</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Sulley</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Hopper</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Skipper</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Hiccup</h3>
-        </div>
+    <div class="row AnimalSection">
+        @foreach (var cat in Model.Where(cat => cat.Species == "Feline"))
+        {
+            <div class="col-md-6 col-lg-4">
+                <a href="#@cat.Name" class="ZooAnimal" onclick="AnimalModal(@cat.AnimalID)">
+                    <img class="StandardImage" src="~/images/animal/@cat.ImageMain" alt="">
+                    <h3 class="AnimalName">@cat.Name</h3>
+                </a>
+            </div>
+        }
     </div>
     <h3>Everybody Else</h3>
-    <div class="row">
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Ruxin</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Aries</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Jesus & Manuel</h3>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img class="StandardImage" src="~/images/RiddlesAndBoo.jpg" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
-            <h3 class="AnimalName">Gus Gus & Dash</h3>
-        </div>
+    <div class="row AnimalSection">
+        @foreach (var other in Model.Where(other => other.Species == "Other"))
+        {
+            <div class="col-md-6 col-lg-4">
+                <a href="#@other.Name" class="ZooAnimal" onclick="AnimalModal(@other.AnimalID)">
+                    <img class="StandardImage" src="~/images/animal/@other.ImageMain" alt="">
+                    <h3 class="AnimalName">@other.Name</h3>
+                </a>
+            </div>
+        }
     </div>
 </div>
 
