@@ -7,8 +7,8 @@
 <div class="container BodyContainer">
     <div class="col-10 text-center offset-1">
         <h1>@Model.Title</h1>
-        <h3>Author: @Model.Author</h3>
-        <h4>@Html.DisplayFor(m => m.PublishDate)</h4>
+        <h4>Author: @Model.Author</h3>
+        <p class="BlogDate">@Html.DisplayFor(m => m.PublishDate)</p>
         @if (Model.Image != null)
         {
             <img class="StandardImage" src="~/images/@Model.Image" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
