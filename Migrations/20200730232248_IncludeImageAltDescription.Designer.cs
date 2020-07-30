@@ -3,14 +3,16 @@ using System;
 using Beckaroo_NetCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Beckaroo_NetCore.Migrations
 {
     [DbContext(typeof(Beckaroo_NetCoreContext))]
-    partial class Beckaroo_NetCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20200730232248_IncludeImageAltDescription")]
+    partial class IncludeImageAltDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
