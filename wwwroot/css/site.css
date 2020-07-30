@@ -218,6 +218,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -228,6 +229,6 @@ body {
 }
 
 .SocialIcon {
-  height: 20px;
-  margin-left: 5px;
+  height: 40px;
+  margin-left: 15px;
 }
