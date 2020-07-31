@@ -56,7 +56,7 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateAnimal([Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string animalDescription)
+        public async Task<IActionResult> CreateAnimal([Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainAlt,ImageMainFile,ImageSecondary,ImageSecondaryAlt,ImageSecondaryFile")] Animal animal, string animalDescription)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +114,7 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditAnimal(int id, [Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainFile,ImageSecondary,ImageSecondaryFile")] Animal animal, string submit, string animalDescription)
+        public async Task<IActionResult> EditAnimal(int id, [Bind("AnimalID,Name,Description,DateOfBirth,Species,ImageMain,ImageMainAlt,ImageMainFile,ImageSecondary,ImageSecondaryAlt,ImageSecondaryFile")] Animal animal, string submit, string animalDescription)
         {
             if (submit == "Delete")
             {

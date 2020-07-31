@@ -17,7 +17,7 @@
             {
                 <div class="col-md-6 col-lg-4">
                     <a class="BlogPost" asp-controller="DailyTails" asp-action="Blog" asp-route-id="@blog.BlogID">
-                        <img class="StandardImage" src="~/images/@blog.Image" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
+                        <img class="StandardImage" src="~/images/@blog.Image" alt="@blog.ImageAlt">
                         <p class="BlogTitle">@blog.Title</p>
                         <p class="BlogDate">@Html.DisplayFor(m => blog.PublishDate)</p>
                     </a>

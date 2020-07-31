@@ -1,7 +1,7 @@
 @model Beckaroo_NetCore.Models.Blog
 
 @{
-    ViewData["Title"] = "Model.Blog.Title";
+    ViewData["Title"] = @Model.Title;
 }
 
 <div class="container BodyContainer">
@@ -11,7 +11,7 @@
         <p class="BlogDate">@Html.DisplayFor(m => m.PublishDate)</p>
         @if (Model.Image != null)
         {
-            <img class="StandardImage" src="~/images/@Model.Image" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
+            <img class="StandardImage" src="~/images/@Model.Image" alt="@Model.ImageAlt">
         }
         <div class="BlogBody text-justify">
             @Html.Raw(Model.Content)
