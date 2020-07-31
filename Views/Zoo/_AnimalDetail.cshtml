@@ -12,7 +12,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img class="StandardImage" src="~/images/animal/@Model.ImageSecondary" alt="A picture of Rufus the dog and Riddley the cat looking at eachother.">
+        <img class="StandardImage" src="~/images/animal/@Model.ImageSecondary" alt="@Model.ImageSecondaryAlt">
         <div class="AnimalBirthday"><strong>Birthday:</strong> @Html.DisplayFor(m => m.DateOfBirth)</div>
         <div class="AnimalDescription">@Html.Raw(Model.Description)</div>
       </div>

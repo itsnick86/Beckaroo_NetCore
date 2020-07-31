@@ -38,7 +38,7 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog, string blogContent)
+        public async Task<IActionResult> CreateBlog([Bind("BlogID,Title,Author,PublishDate,Image,ImageAlt,ImageFile,Content")] Blog blog, string blogContent)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace Beckaroo_NetCore.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,ImageFile,Content")] Blog blog, string submit, string blogContent)
+        public async Task<IActionResult> EditBlog(int? id, [Bind("BlogID,Title,Author,PublishDate,Image,ImageAlt,ImageFile,Content")] Blog blog, string submit, string blogContent)
         {
             if (submit == "Delete")
             {

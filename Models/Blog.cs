@@ -16,6 +16,7 @@ namespace Beckaroo_NetCore.Models
         [Display(Name="Publish Date")]
         public DateTime PublishDate { get; set; }
         public string Image { get; set; }
+        [Display(Name="Image Description")]
         public string ImageAlt { get; set; }
         [NotMapped]
         public IFormFile ImageFile { get; set; }
