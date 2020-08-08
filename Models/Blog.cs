@@ -9,9 +9,11 @@ namespace Beckaroo_NetCore.Models
     {
         [Display(Name="Blog ID")]
         public int BlogID { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Author { get; set; }
-
+        [Required]
         [DataType(DataType.Date)]
         [Display(Name="Publish Date")]
         public DateTime PublishDate { get; set; }
