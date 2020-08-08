@@ -8,12 +8,15 @@ namespace Beckaroo_NetCore.Models
     public class Animal
     {
         public int AnimalID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Description { get; set; }
-
+        [Required]
         [DataType(DataType.Date)]
         [Display(Name="Birthday")]
         public DateTime DateOfBirth { get; set; }
+        [Required]
         public string Species { get; set; }
         [Display(Name="Main Image")]
         public string ImageMain { get; set; }
